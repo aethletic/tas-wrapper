@@ -22,8 +22,19 @@ $client = new Client([
     'session' => 'session_name',
 ]);
 
-$response = $client->get('getSelf'); // GET request
-$response = $client->post('getSelf'); // POST request
+$response = $client->get('getSelf')->execute(); // GET request
+$response = $client->post('getSelf')->execute(); // POST request
+
+print_r($response);
+```
+
+Also, you can define curl option by `option(NAME_OPTION, 'value')` method.
+```php
+$response = $client
+                ->get('getSelf')
+                ->option(CURLOPT_TIMEOUT, 60)
+                ->option(CURLOPT_HEADER, false)
+                ->execute();
 
 print_r($response);
 ```
