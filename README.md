@@ -1,5 +1,5 @@
 # tas-wrapper
-Simple API wrapper for easy manage [TelegramApiServer](https://github.com/xtrime-ru/TelegramApiServer).
+Simple API wrapper for easy manage [TelegramApiServer](https://github.com/xtrime-ru/TelegramApiServer) in your project.
 
 ### Install 
 ```bash
