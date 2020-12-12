@@ -59,9 +59,9 @@ $response = $client->sendMessage('@aethletic', 'so simple!');
 
 Each time the `sendMessage` method is called, the function from the second parameter **will be executed again**.
 
-If you need the function to work only once, and then return only the result of execution in subsequent times, use the `mapOnce()` method instead of `map()`.
+If you need the function to work **only once**, and then return only the result of execution in subsequent times, use the `mapOnce()` method instead of `map()`.
 ```php
-$client->map('getSelf', fn() => $client->get('getSelf')->execute());
+$client->mapOnce('getSelf', fn() => $client->get('getSelf')->execute());
 
 $me = $client->getSelf();
 ```
