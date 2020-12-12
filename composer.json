@@ -1,6 +1,6 @@
 {
     "name": "aethletic/tas-wrapper",
-    "description": "TelegramApiServer simple API wrapper for easy manage.",
+    "description": "Simple API wrapper for easy manage TelegramApiServer.",
     "type": "library",
     "license": "MIT",
     "require": {},
