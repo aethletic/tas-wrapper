@@ -1,0 +1,12 @@
+{
+    "name": "aethletic/tas-wrapper",
+    "description": "TelegramApiServer simple API wrapper for easy manage.",
+    "type": "library",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "TelegramApiServer\\": "src/"
+        }
+    }
+}
