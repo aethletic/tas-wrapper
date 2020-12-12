@@ -40,7 +40,7 @@ class Client
         return json_decode($response, true);
     }
 
-    private function buildApiUrl($method): string
+    private function buildApiUrl($method) : string
     {
         return "{$this->config['host']}:{$this->config['port']}/api/{$method}";
     }
