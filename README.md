@@ -25,7 +25,17 @@ $client = new Client([
 $response = $client->get('getSelf')->execute(); // GET request
 $response = $client->post('getSelf')->execute(); // POST request
 
-print_r($response);
+$response = $client->get('sendMessage', [
+    'peer' => '@aethletic',
+    'text' => 'Hello from tas-wrapper! 👋',
+    'parse_mode' => 'html',
+])->execute();
+
+$response = $client->get('messages.forwardMessages', [
+    'from_peer' => '@source_name',
+    'to_peer' => '@recepient_name',
+    'parse_mode' => 'html',
+])->execute();
 ```
 
 Also, you can define curl option by `option(NAME_OPTION, 'value')` method.
@@ -35,8 +45,6 @@ $response = $client
                 ->option(CURLOPT_TIMEOUT, 60)
                 ->option(CURLOPT_HEADER, false)
                 ->execute();
-
-print_r($response);
 ```
 
 #### Session
