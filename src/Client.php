@@ -18,26 +18,32 @@ class Client
         $this->curl = curl_init();
     }
 
-    public function post(string $method, array $params = []) : array
+    public function post(string $method, array $params = []) : Client
     {
         curl_setopt($this->curl, CURLOPT_URL, $this->buildApiUrl($method));
         curl_setopt($this->curl, CURLOPT_POST, true);
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, http_build_query($params));
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($this->curl);
-
-        return json_decode($response, true);
+        return $this;
     }
 
-    public function get(string $method, array $params = []) : array
+    public function get(string $method, array $params = []) : Client
     {
         curl_setopt($this->curl, CURLOPT_URL, $this->buildApiUrl($method) . '?' . http_build_query($params));
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
+        return $this;
+    }
 
+    public function option($name, $value) : Client
+    {
+        curl_setopt($this->curl, $name, $value);
+        return $this;
+    }
+
+    public function execute() : ?array
+    {
         $response = curl_exec($this->curl);
-
-        return json_decode($response, true);
+        return $response ? json_decode($response, true) : null;
     }
 
     private function buildApiUrl($method) : string
