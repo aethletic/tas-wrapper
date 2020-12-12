@@ -25,9 +25,9 @@ $client = new Client([
 $response = $client->get('getSelf')->execute(); // GET request
 $response = $client->post('getSelf')->execute(); // POST request
 
-$response = $client->get('sendMessage', [
+$response = $client->get('messages.sendMessage', [
     'peer' => '@aethletic',
-    'text' => 'Hello from tas-wrapper! 👋',
+    'message' => 'Hello from tas-wrapper! 👋',
     'parse_mode' => 'html',
 ])->execute();
 
@@ -45,6 +45,25 @@ $response = $client
                 ->option(CURLOPT_TIMEOUT, 60)
                 ->option(CURLOPT_HEADER, false)
                 ->execute();
+```
+
+Map your own methods (aliases), it so simple:
+```php
+$client->map('sendMessage', fn($peer, $text) => $client->get('messages.sendMessage', [
+    'peer' => $peer,
+    'message' => $text,
+])->execute());
+
+$response = $client->sendMessage('@aethletic', 'so simple!');
+```
+
+Each time the `sendMessage` method is called, the function from the second parameter **will be executed again**.
+
+If you need the function to work only once, and then return only the result of execution in subsequent times, use the `mapOnce()` method instead of `map()`.
+```php
+$client->map('getSelf', fn() => $client->get('getSelf')->execute());
+
+$me = $client->getSelf();
 ```
 
 #### Session
