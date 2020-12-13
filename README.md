@@ -30,12 +30,6 @@ $response = $client->get('messages.sendMessage', [
     'message' => 'Hello from tas-wrapper! 👋',
     'parse_mode' => 'html',
 ])->execute();
-
-$response = $client->get('messages.forwardMessages', [
-    'from_peer' => '@source_name',
-    'to_peer' => '@recepient_name',
-    'parse_mode' => 'html',
-])->execute();
 ```
 
 Also, you can define curl option by `option(NAME_OPTION, 'value')` method.
