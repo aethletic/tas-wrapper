@@ -69,6 +69,10 @@ class Client
 
     public function mapOnce(string $method, $func)
     {
+        if (method_exists($this, $method)) {
+            throw new \Exception('Cannot override an existing method.');
+        }
+        
         $this->mappedMethods[$method] = call_user_func($func);
     }
 
