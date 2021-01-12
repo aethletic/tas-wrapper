@@ -3,7 +3,7 @@ Simple API wrapper for easy manage [TelegramApiServer](https://github.com/xtrime
 
 ### Install 
 ```bash
-composer require aethletic/tas-wrapper
+composer require chipslays/tas-wrapper
 ```
 
 ### Example
