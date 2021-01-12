@@ -1,5 +1,5 @@
 {
-    "name": "aethletic/tas-wrapper",
+    "name": "chipslays/tas-wrapper",
     "description": "Simple API wrapper for easy manage TelegramApiServer.",
     "type": "library",
     "license": "MIT",
