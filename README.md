@@ -26,7 +26,7 @@ $response = $client->get('getSelf')->execute(); // GET request
 $response = $client->post('getSelf')->execute(); // POST request
 
 $response = $client->get('messages.sendMessage', [
-    'peer' => '@aethletic',
+    'peer' => '@chipslays',
     'message' => 'Hello from tas-wrapper! 👋',
     'parse_mode' => 'html',
 ])->execute();
