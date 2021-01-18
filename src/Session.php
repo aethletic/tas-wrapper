@@ -17,7 +17,7 @@ class Session
 
     public static function setConfig(array $config = []) : void
     {
-        self::$config = array_merge($this->config, $config);
+        self::$config = array_merge(self::$config, $config);
     }
 
     public static function list() : ?array
