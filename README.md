@@ -48,7 +48,7 @@ $client->map('sendMessage', fn($peer, $text) => $client->get('messages.sendMessa
     'message' => $text,
 ])->execute());
 
-$response = $client->sendMessage('@aethletic', 'so simple!');
+$response = $client->sendMessage('@chipslays', 'so simple!');
 ```
 
 Each time the `sendMessage` method is called, the function from the second parameter **will be executed again**.
